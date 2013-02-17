@@ -1,5 +1,10 @@
 require 'minitest/autorun'
+require 'minitest/mock'
 require 'turn'
+
+def mock
+  MiniTest::Mock.new
+end
 
 Turn.config do |c|
  # use one of output formats:
@@ -9,9 +14,9 @@ Turn.config do |c|
  # :pretty   - new pretty reporter
  # :marshal  - dump output as YAML (normal run mode only)
  # :cue      - interactive testing
- c.format  = :pretty
+ c.format  = :cue
  # turn on invoke/execute tracing, enable full backtrace
- c.trace   = true
+ c.trace   = false
  # use humanized test names (works only with :outline format)
  c.natural = true
 end

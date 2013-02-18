@@ -9,9 +9,15 @@ describe Backlog do
   end
 
   describe 'with items' do
+    let(:user_story) { 'As a scrum master...' }
+    before { backlog << user_story }
+
     it "should not be empty" do
-      backlog << mock
       refute_empty backlog.items
+    end
+
+    it "should list items" do
+      assert_equal backlog.items, [user_story]
     end
   end
 end
